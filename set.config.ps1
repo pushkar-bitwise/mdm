@@ -22,8 +22,8 @@ Get-ChildItem env:* | ForEach-Object {
         $key = $_.Key.Substring($connectionStringPrefix.Length);
         $connStr = $doc.configuration.connectionStrings.add | Where-Object {$_.name -eq $key};
         if ($connStr) {
-            $connStr.connectionString = $_.Value;
-            Write-Host "Replaced connectionString" $_.Key $_.Value;
+            $connStr.connectionString =$_.Value.Replace("&amp;quot;","&quot;");
+            Write-Host "Replaced connectionString" $_.Key $_.Value.Replace("&amp;quot;","&quot;");
         }
     }
 }
