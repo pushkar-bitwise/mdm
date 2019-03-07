@@ -9,6 +9,7 @@ image:
   # If using a private repository, the name of the imagePullSecret to use
   # pullSecret: my-repo-secret
 service:
+  type: ClusterIP
   name: sonarqube
   containerPort: 9000
 # Affinity for pod assignment
